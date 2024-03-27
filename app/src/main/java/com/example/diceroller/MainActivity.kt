@@ -31,9 +31,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             DiceRollerTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                    ){
                 // A surface container using the 'background' color from the theme
                 DiceRollerApp()
-
             }
         }
     }
@@ -51,8 +54,7 @@ fun DiceRollerApp() {
 
 @Composable
 fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
-    var result by remember {
-        mutableStateOf(1)
+    var result by remember { mutableStateOf(1)
     }
     val imageResource = when (result){
         1 -> R.drawable.dice_1
